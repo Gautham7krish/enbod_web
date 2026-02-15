@@ -1,0 +1,144 @@
+/* MISSION SECTION SPECIFIC */
+
+.mission-container {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 120px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: transparent;
+    font-family: "Poppins", sans-serif;
+}
+
+.mission-header-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.mission-vision-card {
+    text-align: left;
+}
+
+.mission-vision-title {
+    font-size: 52px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+
+.mission-vision-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 480px;
+}
+
+/* CHESS VISUAL */
+
+.chess-visual-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    position: relative;
+}
+
+.chess-placeholder-text {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 14px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.chess-glow {
+    position: absolute;
+    bottom: -100px;
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(95, 124, 255, 0.2) 0%, transparent 70%);
+    z-index: -1;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+    .mission-header-grid {
+        gap: 60px;
+    }
+
+    .mission-vision-title {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mission-header-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 60px;
+    }
+
+    .mission-vision-card {
+        text-align: center;
+    }
+
+    .mission-vision-text {
+        max-width: 100%;
+    }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+    .mission-container {
+        padding: 80px 5%;
+        padding-bottom: 90px;
+        /* Space for bottom nav */
+    }
+
+    .mission-vision-title {
+        font-size: 36px;
+    }
+
+    .mission-vision-text {
+        font-size: 14px;
+    }
+}
+
+/* Mission/Vision Mobile Fixes */
+@media (max-width: 768px) {
+    .mission-container {
+        padding: 60px 5% !important;
+        justify-content: flex-start !important;
+        padding-top: 100px !important;
+    }
+    
+    .mission-header-grid {
+        gap: 30px !important;
+    }
+    
+    .mission-vision-title {
+        font-size: 28px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .mission-vision-text {
+        font-size: 13px !important;
+        line-height: 1.6 !important;
+    }
+    
+    .mission-container .hero-right {
+        position: absolute;
+        bottom: 100px;
+        opacity: 0.3;
+        pointer-events: none;
+        max-width: 150px !important;
+    }
+}

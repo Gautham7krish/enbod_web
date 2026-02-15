@@ -1,0 +1,9 @@
+﻿/* ADVESORY CSS - FINAL DESIGN MATCH */
+/* Re-using the premium modal styling from Network.css to ensure consistency */
+
+@import url('./Network.css');
+
+/* Custom overrides for Advisory Board if needed */
+/* .network-title {
+    max-width: 900px;
+} */

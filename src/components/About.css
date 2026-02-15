@@ -1,0 +1,134 @@
+/* HERO CONTAINER */
+
+.hero-section {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 80px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    background: transparent;
+    /* Changed from gradient to transparent */
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+/* LEFT SIDE */
+
+.hero-left {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-subtitle {
+    font-size: 56px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 600;
+    color: #5f7cff;
+    margin-bottom: 25px;
+}
+
+.hero-description {
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* RIGHT SIDE IMAGE */
+
+.hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-right img {
+    width: 100%;
+    max-width: 520px;
+
+    /* glow effect */
+    filter: drop-shadow(0 0 40px rgba(255, 180, 60, 0.5));
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-left {
+        max-width: 100%;
+    }
+
+    .hero-right img {
+        max-width: 380px;
+    }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 40px 5%;
+        padding-top: 100px !important;
+        padding-bottom: 90px;
+        /* Space for bottom nav */
+        justify-content: flex-start !important;
+    }
+
+    .hero-subtitle {
+        font-size: 24px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .hero-title {
+        font-size: 28px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .hero-description {
+        font-size: 13px !important;
+        line-height: 1.6 !important;
+    }
+
+    .hero-right img {
+        max-width: 200px !important;
+        margin-top: 20px;
+    }
+}
+
+/* Mobile Carousel Dots for static views */
+.carousel-dots-static {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column !important;
+        text-align: center;
+        padding-top: 100px !important;
+    }
+
+    .hero-left {
+        max-width: 100% !important;
+        margin-bottom: 30px;
+    }
+
+    .hero-right {
+        max-width: 100% !important;
+    }
+}
