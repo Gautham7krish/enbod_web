@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Healthcare from './components/Healthcare';
-import Network from './components/Network';
-import VideoBackground from './components/VideoBackground';
-import NanotechBackground from './components/NanotechBackground';
+import Header from './components/layout/Header';
+import Sidebar from './components/layout/Sidebar';
+import Hero from './components/sections/Hero';
+import About from './components/sections/About';
+import Healthcare from './components/sections/Healthcare';
+import Network from './components/sections/Network';
+import VideoBackground from './components/backgrounds/VideoBackground';
+import NanotechBackground from './components/backgrounds/NanotechBackground';
 import homeBgMobile from './assets/Background.jpg';
 import bgImageDesktop from './assets/bg.png';
 import healthcareBg from './assets/04-scope.jpg'; // Using the standard high-res image for scope background fallback
@@ -14,11 +14,11 @@ import networkBg from './assets/image.jpg';
 import './styles/global.css';
 import contactBg from './assets/edd.png';
 import aboutBg from './assets/04.jpg';
-import ContactForm from './components/Contact';
-import Mission from './components/Mission';
-import Values from './components/Values';
-import Advesory from './components/Advesory';
-import BottomNav from './components/BottomNav';
+import ContactForm from './components/sections/Contact';
+import Mission from './components/sections/Mission';
+import Values from './components/sections/Values';
+import Advisory from './components/sections/Advisory';
+import BottomNav from './components/layout/BottomNav';
 
 function App() {
   const [activeTab, setActiveTab] = useState('HOME');
@@ -126,7 +126,7 @@ function App() {
         {activeTab === 'SCOPE' && <Healthcare />}
         {activeTab === 'TEAM' && <Network />}
         {activeTab === 'CONTACT US' && <ContactForm />}
-        {activeTab === 'ADVISORY BOARD' && <Advesory />}
+        {activeTab === 'ADVISORY BOARD' && <Advisory />}
       </main>
       <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
     </div>

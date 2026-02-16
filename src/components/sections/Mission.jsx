@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Mission.css";
-import chessImage from '../assets/chess.png';
+import chessImage from '../../assets/chess.png';
 
 const Mission = () => {
     return (

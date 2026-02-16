@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SilhouetteCanvas from './SilhouetteCanvas';
-import budImage from '../assets/bud1.png';
+import SilhouetteCanvas from '../backgrounds/SilhouetteCanvas';
+import budImage from '../../assets/bud1.png';
 import './About.css';
 
 const About = () => {
