@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import GlowingSun from './GlowingSun';
+import GlowingSun from '../backgrounds/GlowingSun';
 import './Healthcare.css';
 
 const Healthcare = () => {

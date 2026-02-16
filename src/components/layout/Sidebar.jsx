@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from '../assets/logo.png';
+import logo from '../../assets/logo.png';
 import './Sidebar.css';
-import homeIcon from '../assets/home-blk.png';
-import aboutIcon from '../assets/about-blk.png';
-import scopeIcon from '../assets/scope-blk.png';
-import teamIcon from '../assets/team-blk.png';
-import boardIcon from '../assets/board-blk.png';
-import contactIcon from '../assets/contact-blk.png';
+import homeIcon from '../../assets/home-blk.png';
+import aboutIcon from '../../assets/about-blk.png';
+import scopeIcon from '../../assets/scope-blk.png';
+import teamIcon from '../../assets/team-blk.png';
+import boardIcon from '../../assets/board-blk.png';
+import contactIcon from '../../assets/contact-blk.png';
 
 const Sidebar = ({ activeTab, onTabChange }) => {
   const sidebarItems = [

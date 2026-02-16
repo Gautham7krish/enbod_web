@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Values.css";
-import lotusImage from '../assets/loctus.png';
+import lotusImage from '../../assets/loctus.png';
 
 const Values = () => {
     const [activeValue, setActiveValue] = React.useState(0);
