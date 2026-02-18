@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import Header from './components/layout/Header';
 import Sidebar from './components/layout/Sidebar';
 import Hero from './components/sections/Hero';
+import HeroMobile from './components/sections/HeroMobile';
 import About from './components/sections/About';
 import Healthcare from './components/sections/Healthcare';
 import Network from './components/sections/Network';
@@ -144,7 +145,7 @@ function App() {
       <Header activeTab={activeTab} />
       <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
       <main style={{ height: '100%', width: '100%' }}>
-        {activeTab === 'HOME' && <Hero />}
+        {activeTab === 'HOME' && (isMobile ? <HeroMobile /> : <Hero />)}
 
         {activeTab === 'ABOUT US' && (
           <>

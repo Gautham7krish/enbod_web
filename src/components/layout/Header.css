@@ -63,6 +63,17 @@
         justify-content: center;
     }
 
+    .main-header.home-header {
+        justify-content: flex-start;
+        padding-left: 25px; 
+        padding-top: 60px;
+    }
+
+    .main-header.home-header .full-logo-img {
+        height: 85px; 
+        width: auto;
+    }
+
     .full-logo-img {
         height: 60px;
         width: 12rem;
