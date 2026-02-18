@@ -4,9 +4,6 @@ import './VideoBackground.css';
 const VideoBackground = () => {
     return (
         <div className="video-background-container">
-            {/* 
-        The video sits on top of the global background.
-      */}
             <video
                 autoPlay
                 loop
