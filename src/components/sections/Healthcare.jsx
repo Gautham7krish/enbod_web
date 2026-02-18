@@ -1,19 +1,35 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import GlowingSun from '../backgrounds/GlowingSun';
 import './Healthcare.css';
 
 const Healthcare = () => {
-    return (
-        <div className="healthcare-container">
-            <motion.div
-                className="healthcare-content"
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-            >
-                <div className="healthcare-header">
+    const containerRef = useRef(null);
 
+    useGSAP(() => {
+        const tl = gsap.timeline();
+
+        tl.from(['.healthcare-title', '.healthcare-subtitle', '.healthcare-description'], {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out"
+        })
+            .from('.healthcare-visual', {
+                opacity: 0,
+                scale: 0.8,
+                duration: 1.5,
+                ease: "power3.out"
+            }, "-=0.8");
+
+    }, { scope: containerRef });
+
+    return (
+        <div className="healthcare-container" ref={containerRef}>
+            <div className="healthcare-content">
+                <div className="healthcare-header">
                     <h1 className="healthcare-title">AI That Cares</h1>
                 </div>
 
@@ -28,27 +44,15 @@ const Healthcare = () => {
                     efficiency, and a revolutionized approach to patient care.
                 </p>
 
-                <motion.div
-                    className="healthcare-features"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.8 }}
-                >
+                <div className="healthcare-features">
+                </div>
+            </div>
 
-
-                </motion.div>
-            </motion.div>
-
-            <motion.div
-                className="healthcare-visual"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.5, ease: "easeOut" }}
-            >
+            <div className="healthcare-visual">
                 <div className="sun-container">
                     <GlowingSun />
                 </div>
-            </motion.div>
+            </div>
         </div>
     );
 };
