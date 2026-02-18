@@ -11,7 +11,13 @@ import homeBgMobile from './assets/Background.jpg';
 import bgImageDesktop from './assets/bg.png';
 import healthcareBg from './assets/04-scope.jpg'; // Using the standard high-res image for scope background fallback
 import networkBg from './assets/image.jpg';
+import AboutParticles from './components/backgrounds/AboutParticles';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './styles/global.css';
+
+gsap.registerPlugin(ScrollTrigger);
 import contactBg from './assets/edd.png';
 import aboutBg from './assets/04.jpg';
 import ContactForm from './components/sections/Contact';
@@ -86,40 +92,50 @@ function App() {
         {activeTab === 'HOME' && <Hero />}
 
         {activeTab === 'ABOUT US' && (
-          <div className="page-wrapper" style={{
-            height: '100vh',
-            width: '100%',
-            overflowY: 'auto',
-            scrollSnapType: 'y mandatory',
-            scrollBehavior: 'smooth'
-          }}>
-            <section className="page-section" style={{
-              scrollSnapAlign: 'start',
+          <>
+            <div style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              zIndex: 0,
+              background: 'radial-gradient(ellipse at 25% 30%, #0c1a4a 0%, #071035 30%, #040a25 60%, #020618 100%)'
+            }}>
+              <AboutParticles />
+            </div>
+            <div className="page-wrapper" style={{
               height: '100vh',
               width: '100%',
-              display: 'block'
+              overflowY: 'auto',
+              position: 'relative',
+              zIndex: 1
             }}>
-              <About />
-            </section>
+              <section className="page-section" style={{
+                height: '100vh',
+                width: '100%',
+                display: 'block'
+              }}>
+                <About />
+              </section>
 
-            <section className="page-section" style={{
-              scrollSnapAlign: 'start',
-              height: '100vh',
-              width: '100%',
-              display: 'block'
-            }}>
-              <Mission />
-            </section>
+              <section className="page-section" style={{
+                height: '100vh',
+                width: '100%',
+                display: 'block'
+              }}>
+                <Mission />
+              </section>
 
-            <section className="page-section" style={{
-              scrollSnapAlign: 'start',
-              height: '100vh',
-              width: '100%',
-              display: 'block'
-            }}>
-              <Values />
-            </section>
-          </div>
+              <section className="page-section" style={{
+                height: '100vh',
+                width: '100%',
+                display: 'block'
+              }}>
+                <Values />
+              </section>
+            </div>
+          </>
         )}
 
         {activeTab === 'SCOPE' && <Healthcare />}

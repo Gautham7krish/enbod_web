@@ -6,7 +6,6 @@ import './About.css';
 const About = () => {
     return (
         <div className="hero-section about-section">
-            <AboutParticles />
             <div className="hero-left" style={{ zIndex: 2, position: 'relative' }}>
                 <h2 className="hero-subtitle">Intelligence in Motion</h2>
                 <h2 className="hero-title" style={{ color: '#5f7cff' }}>
