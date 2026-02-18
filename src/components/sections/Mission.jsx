@@ -27,9 +27,9 @@ const Mission = () => {
             </div>
 
             {/* RIGHT IMAGE/CANVAS */}
-            <div className="hero-right">
-                <img src={chessImage} alt="AI figure" />
 
+            <div className="mission-bottom-visual">
+                <img src={chessImage} alt="Strategy" />
             </div>
         </div>
     );

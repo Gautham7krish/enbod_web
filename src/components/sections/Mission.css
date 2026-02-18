@@ -17,54 +17,58 @@
 .mission-header-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 120px;
+    gap: 250px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
 }
 
 .mission-vision-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.mission-header-grid .mission-vision-card:nth-child(1) {
+    text-align: right;
+    align-items: flex-end;
+}
+
+.mission-header-grid .mission-vision-card:nth-child(2) {
     text-align: left;
+    align-items: flex-start;
 }
 
 .mission-vision-title {
-    font-size: 52px;
-    font-weight: 600;
+    font-size: 4vw;
+    font-weight: 700;
     color: white;
-    margin-bottom: 30px;
-    letter-spacing: -1px;
+    margin-bottom: 1.5vw;
+    letter-spacing: -0.02em;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .mission-vision-text {
-    font-size: 15px;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.8);
-    max-width: 480px;
+    font-size: 1.1vw;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 35vw;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* CHESS VISUAL */
 
-.chess-visual-container {
+.mission-bottom-visual {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: 4vw;
     position: relative;
+    z-index: 2;
 }
 
-.chess-placeholder-text {
-    color: rgba(255, 255, 255, 0.2);
-    font-size: 14px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-}
-
-.chess-glow {
-    position: absolute;
-    bottom: -100px;
-    width: 800px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(95, 124, 255, 0.2) 0%, transparent 70%);
-    z-index: -1;
+.mission-bottom-visual img {
+    max-width: 50vw;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
 }
 
 /* RESPONSIVE */

@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import AboutParticles from '../backgrounds/AboutParticles';
 import budImage from '../../assets/bud2.png';
 import './About.css';
 
 const About = () => {
+    const containerRef = useRef(null);
+
+    useGSAP(() => {
+        gsap.from(['.hero-subtitle', '.hero-title', '.hero-description'], {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: 'power3.out'
+        });
+    }, { scope: containerRef });
+
     return (
-        <div className="hero-section about-section">
+        <div className="hero-section about-section" ref={containerRef}>
             <div className="hero-left" style={{ zIndex: 2, position: 'relative' }}>
                 <h2 className="hero-subtitle">Intelligence in Motion</h2>
                 <h2 className="hero-title" style={{ color: '#5f7cff' }}>
