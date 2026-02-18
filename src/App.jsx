@@ -86,6 +86,7 @@ function App() {
       return () => {
         lenis.destroy();
         ScrollTrigger.getAll().forEach(t => t.kill());
+        gsap.set('.logo-container', { opacity: 1, pointerEvents: 'auto' });
       };
     }
   }, [activeTab]);
