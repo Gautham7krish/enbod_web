@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FaFacebookF, FaLinkedinIn, FaTwitter, FaInstagram } from 'react-icons/fa';
 import p1 from '../../assets/1m.png';
 import p2 from '../../assets/2m.png';
 import p3 from '../../assets/3m.png';
 import p4 from '../../assets/4m.png';
-import fullLogo from '../../assets/full_logo.png';
-import './Advisory.css';
+import './Network.css';
 
 const teamMembers = [
   {
@@ -76,40 +76,40 @@ const Advisory = () => {
   const [selectedMember, setSelectedMember] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  /* Simplified Fade In - Matches Network.jsx */
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.1,
         delayChildren: 0.2
       }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.5,
+        ease: "easeOut"
       }
     }
   };
 
   const modalVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.9 },
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.3 }
+      transition: { duration: 0.4, ease: "easeOut" }
     },
     exit: {
       opacity: 0,
-      scale: 0.8,
-      transition: { duration: 0.2 }
+      scale: 0.9,
+      transition: { duration: 0.3, ease: "easeIn" }
     }
   };
 
@@ -125,13 +125,13 @@ const Advisory = () => {
   const nextMember = () => {
     const newIndex = (currentIndex + 1) % teamMembers.length;
     setCurrentIndex(newIndex);
-    if (selectedMember) setSelectedMember(teamMembers[newIndex]);
+    setSelectedMember(teamMembers[newIndex]);
   };
 
   const prevMember = () => {
     const newIndex = (currentIndex - 1 + teamMembers.length) % teamMembers.length;
     setCurrentIndex(newIndex);
-    if (selectedMember) setSelectedMember(teamMembers[newIndex]);
+    setSelectedMember(teamMembers[newIndex]);
   };
 
   const goToMember = (index) => {
@@ -145,11 +145,23 @@ const Advisory = () => {
         <div className="network-overlay" />
 
         <div className="network-inner">
-          <h1 className="network-title">
+          <motion.h1
+            className="network-title"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
             Wisdom That Leads. <span>Action That Transforms</span>
-          </h1>
+          </motion.h1>
 
-          <div className="team-wrapper desktop-view-wrapper">
+          <motion.div
+            className="team-wrapper desktop-view-wrapper"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
@@ -160,11 +172,15 @@ const Advisory = () => {
                 onClick={() => openModal(index)}
               >
                 <div className="image-box">
-                  <img src={member.image} alt={member.name} />
+                  <img
+                    src={member.image}
+                    alt={`${member.name} - ${member.title}`}
+                    loading="lazy"
+                  />
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           <div className="mobile-slider">
             <button
@@ -191,18 +207,10 @@ const Advisory = () => {
                 <div className="image-box">
                   <img
                     src={teamMembers[currentIndex].image}
-                    alt={teamMembers[currentIndex].name}
+                    alt={`${teamMembers[currentIndex].name} - ${teamMembers[currentIndex].title}`}
+                    loading="lazy"
                   />
                 </div>
-
-                {/* <div className="info-box">
-                   <div className="name">
-                     {teamMembers[currentIndex].name}
-                   </div>
-                   <div className="role">
-                     {teamMembers[currentIndex].title}
-                   </div>
-                 </div> */}
               </motion.div>
             </AnimatePresence>
 
@@ -238,9 +246,7 @@ const Advisory = () => {
               exit="exit"
               onClick={(e) => e.stopPropagation()}
             >
-              <button className="modal-close" onClick={closeModal}>
-                ×
-              </button>
+              <button className="modal-close" onClick={closeModal}>×</button>
 
               <div className="modal-body">
                 <div className="modal-left">
@@ -248,26 +254,41 @@ const Advisory = () => {
                     src={selectedMember.image}
                     alt={selectedMember.name}
                     className="modal-image"
+                    loading="lazy"
                   />
                 </div>
 
                 <div className="modal-right">
-                  <h2 className="modal-name">
-                    {selectedMember.name}
-                  </h2>
+                  <h2 className="modal-name">{selectedMember.name}</h2>
+                  <p className="modal-title">{selectedMember.title}</p>
 
-                  <p className="modal-title">
-                    {selectedMember.title}
-                  </p>
+                  <div className="modal-social">
+                    <a href={selectedMember.social.facebook} target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+                    <span className="social-sep">|</span>
+                    <a href={selectedMember.social.linkedin} target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
+                    <span className="social-sep">|</span>
+                    <a href={selectedMember.social.twitter} target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+                    <span className="social-sep">|</span>
+                    <a href={selectedMember.social.instagram} target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+                  </div>
 
-                  <p className="modal-bio">
-                    {selectedMember.bio}
-                  </p>
+                  <p className="modal-bio">{selectedMember.bio}</p>
                 </div>
               </div>
 
-              <button className="side-arrow left" onClick={prevMember}>←</button>
-              <button className="side-arrow right" onClick={nextMember}>→</button>
+              <div className="modal-footer-nav">
+                <button className="nav-arrow" onClick={prevMember}>←</button>
+                <div className="nav-dots">
+                  {teamMembers.map((_, idx) => (
+                    <span
+                      key={idx}
+                      className={`nav-dot ${idx === currentIndex ? 'active' : ''}`}
+                      onClick={() => goToMember(idx)}
+                    />
+                  ))}
+                </div>
+                <button className="nav-arrow" onClick={nextMember}>→</button>
+              </div>
             </motion.div>
           </motion.div>
         )}

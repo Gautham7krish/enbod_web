@@ -212,9 +212,13 @@
     box-shadow: 0 0.5vw 1vw rgba(0,0,0,0.3);
     
     transform: scale(1.4);
-    clip-path: inset(20% 16% 12% 12% round 0.5vw);
+    clip-path: inset(14% 16% 12% 12% round 0.5vw);
     
     margin-top: 3.5vw; 
+}
+
+.network-title{
+  font-size: 3vw;
 }
 
 .modal-right {
