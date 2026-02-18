@@ -9,6 +9,7 @@
     z-index: 10;
 }
 
+
 .hero-container::after {
     content: '';
     position: absolute;
@@ -16,57 +17,52 @@
     left: 0;
     width: 100%;
     height: 70%;
-    background: linear-gradient(to top,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 0, 0, 0.9) 30%,
-            rgba(0, 0, 0, 0.5) 60%,
-            transparent 100%);
+    background: none;
     pointer-events: none;
     z-index: 15;
 }
 
 .hero-content {
-    max-width: 650px; 
+    max-width: 650px;
     width: 100%;
     position: relative;
     z-index: 20;
 }
 
-.hero-title {
-    font-size: 64px; 
-    font-weight: 600;
+.hero-container .hero-title {
+    font-size: 52px;
+    font-weight: 700;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--ast-global-color-3); 
-    color: #ffffff; 
-    line-height: 1.4em;
-    margin-bottom: 20px;
+    color: #000462 !important;
+    line-height: 1.2em;
+    margin-bottom: 5px;
 }
 
-.hero-subtitle {
-    font-size: 48px; 
-    font-weight: 600;
+.hero-container .hero-subtitle {
+    font-size: 52px;
+    font-weight: 700;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--ast-global-color-2); 
-    line-height: 1.3em;
+    color: #518bfd !important;
+    line-height: 1.2em;
     margin-bottom: 30px;
 }
 
-.hero-description {
-    font-size: 18px;
+.hero-container .hero-description {
+    font-size: 16px;
     line-height: 1.65;
-    color: var(--ast-global-color-3); 
+    color: #3a3a3a !important;
     font-weight: 400;
-    max-width: 500px;
+    max-width: 480px;
 }
 
 
 @media (max-width: 1024px) {
     .hero-title {
-        font-size: 48px;
+        font-size: 42px;
     }
 
     .hero-subtitle {
-        font-size: 36px;
+        font-size: 42px;
     }
 
     .hero-container {
@@ -83,6 +79,14 @@
         justify-content: flex-start;
         align-items: flex-end;
         padding-top: 0;
+    }
+
+    .hero-container::after {
+        background: linear-gradient(to top,
+                rgba(0, 0, 0, 1) 0%,
+                rgba(0, 0, 0, 0.9) 30%,
+                rgba(0, 0, 0, 0.5) 60%,
+                transparent 100%);
     }
 
     .hero-content {

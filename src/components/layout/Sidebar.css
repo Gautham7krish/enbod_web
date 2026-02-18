@@ -1,30 +1,25 @@
 .sidebar {
     position: fixed;
     left: 15px;
-    /* Floating from left */
     top: 50%;
     transform: translateY(-50%);
     height: auto;
-    width: 65px;
-    padding: 20px 0;
-    background: rgba(255, 255, 255, 0.05);
-    /* Very transparent base */
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    width: 50px;
+    padding: 15px 0;
+    background: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 1000;
     border-radius: 40px;
-    /* Pill shape */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border: none;
+    box-shadow: none;
 }
 
 .sidebar-icons {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 18px;
     align-items: center;
     width: 100%;
 }
@@ -35,56 +30,54 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
     position: relative;
     background: transparent;
 }
 
 .sidebar-custom-icon {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
-    filter: invert(1) brightness(0.8) opacity(0.6);
-    /* Auto-adapt to dark themes */
+    filter: brightness(0) opacity(0.5);
     transition: all 0.3s ease;
 }
 
-/* Active State - Glow Effect */
+
 .sidebar-icon-wrapper.active {
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-    transform: scale(1.1);
+    background: #6561FB;
+    box-shadow: 0 2px 10px rgba(101, 97, 251, 0.3);
+    transform: scale(1.05);
 }
 
 .sidebar-icon-wrapper.active .sidebar-custom-icon {
     filter: invert(1) brightness(1) opacity(1);
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 /* Hover Effect */
 .sidebar-icon-wrapper:not(.active):hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.05);
 }
 
 .sidebar-icon-wrapper:hover .sidebar-custom-icon {
-    filter: invert(1) brightness(1) opacity(0.9);
+    filter: brightness(0) opacity(0.8);
 }
 
 /* Tooltip Styling */
 .sidebar-tooltip {
     position: absolute;
-    left: 70px;
-    /* Pop out to right */
-    background: rgba(62, 103, 198, 0.9);
+    left: 55px;
+    background: rgba(0, 6, 98, 0.9);
     backdrop-filter: blur(10px);
     padding: 6px 12px;
     border-radius: 8px;
     font-size: 12px;
     font-weight: 600;
-    color: #f2f2f4;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     opacity: 0;
     visibility: hidden;
     transform: translateX(-10px);
@@ -104,17 +97,17 @@
 /* Tablet */
 @media (max-width: 1024px) {
     .sidebar {
-        width: 60px;
+        width: 45px;
         left: 10px;
     }
 
     .sidebar-icon-wrapper {
-        width: 44px;
-        height: 44px;
+        width: 36px;
+        height: 36px;
     }
 
     .sidebar-icons {
-        gap: 20px;
+        gap: 15px;
     }
 }
 
@@ -122,7 +115,6 @@
 @media (max-width: 768px) {
     .sidebar {
         display: none;
-        /* Completely hidden on mobile */
     }
 }
 
@@ -130,6 +122,5 @@
 @media (max-width: 480px) {
     .sidebar {
         display: none;
-        /* Ensure hidden */
     }
 }

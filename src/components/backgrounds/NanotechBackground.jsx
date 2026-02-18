@@ -8,19 +8,25 @@ const NanotechBackground = () => {
         const ctx = canvas.getContext('2d');
         let width, height;
         let particles = [];
+        const mouse = { x: -1000, y: -1000 };
+        const mouseRadius = 120;
 
-        // Configuration for a cinematic, technical feel
         const particleCount = 100;
         const connectionDistance = 150;
-        const colors = {
-            particle: 'rgba(255, 255, 255, 0.5)',
-            line: 'rgba(150, 160, 180, 0.3)',
-            glow: 'rgba(255, 255, 255, 0.1)'
-        };
 
         const handleResize = () => {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
+        };
+
+        const handleMouseMove = (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        };
+
+        const handleMouseLeave = () => {
+            mouse.x = -1000;
+            mouse.y = -1000;
         };
 
         class Particle {
@@ -29,22 +35,40 @@ const NanotechBackground = () => {
             }
 
             reset(initial = false) {
-                this.x = Math.random() * width;
-                this.y = initial ? Math.random() * height : -20;
+                this.originX = Math.random() * width;
+                this.originY = initial ? Math.random() * height : Math.random() * height;
+                this.x = this.originX;
+                this.y = this.originY;
                 this.size = Math.random() * 2 + 0.5;
-                this.vx = (Math.random() - 0.5) * 0.4;
-                this.vy = Math.random() * 0.5 + 0.2; // Drifting down slightly
+                this.vx = 0;
+                this.vy = 0;
                 this.opacity = Math.random() * 0.5 + 0.1;
                 this.pulse = Math.random() * Math.PI;
                 this.pulseSpeed = Math.random() * 0.03 + 0.015;
             }
 
             update() {
+                const dx = this.x - mouse.x;
+                const dy = this.y - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < mouseRadius) {
+                    const force = (mouseRadius - dist) / mouseRadius;
+                    const angle = Math.atan2(dy, dx);
+                    this.vx += Math.cos(angle) * force * 1.2;
+                    this.vy += Math.sin(angle) * force * 1.2;
+                }
+
+                this.vx += (this.originX - this.x) * 0.02;
+                this.vy += (this.originY - this.y) * 0.02;
+
+                this.vx *= 0.92;
+                this.vy *= 0.92;
+
                 this.x += this.vx;
                 this.y += this.vy;
                 this.pulse += this.pulseSpeed;
 
-                // Subtle drift and boundary check
                 if (this.y > height + 20) this.y = -20;
                 if (this.y < -20) this.y = height + 20;
                 if (this.x < -20) this.x = width + 20;
@@ -55,12 +79,9 @@ const NanotechBackground = () => {
                 const alpha = this.opacity * (0.5 + Math.sin(this.pulse) * 0.5);
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-
-                // Cinematic glow for nodes
-                ctx.shadowBlur = alpha * 15;
-                ctx.shadowColor = 'rgba(255, 255, 255, 0.3)';
-
+                ctx.fillStyle = `rgba(80, 80, 100, ${alpha})`;
+                ctx.shadowBlur = alpha * 10;
+                ctx.shadowColor = 'rgba(80, 80, 100, 0.2)';
                 ctx.fill();
                 ctx.shadowBlur = 0;
             }
@@ -82,14 +103,28 @@ const NanotechBackground = () => {
                     const dist = Math.sqrt(dx * dx + dy * dy);
 
                     if (dist < connectionDistance) {
-                        const alpha = (1 - dist / connectionDistance) * 0.5;
+                        const alpha = (1 - dist / connectionDistance) * 0.3;
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(200, 210, 230, ${alpha})`;
+                        ctx.strokeStyle = `rgba(100, 110, 130, ${alpha})`;
                         ctx.lineWidth = 0.8;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
                         ctx.stroke();
                     }
+                }
+
+                const mdx = particles[i].x - mouse.x;
+                const mdy = particles[i].y - mouse.y;
+                const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
+
+                if (mDist < mouseRadius) {
+                    const alpha = (1 - mDist / mouseRadius) * 0.4;
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(101, 97, 251, ${alpha})`;
+                    ctx.lineWidth = 0.6;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.stroke();
                 }
             }
         };
@@ -97,9 +132,8 @@ const NanotechBackground = () => {
         const animate = () => {
             ctx.clearRect(0, 0, width, height);
 
-            // Background ambient glow
             const gradient = ctx.createRadialGradient(width * 0.3, height * 0.4, 0, width * 0.3, height * 0.4, width * 0.6);
-            gradient.addColorStop(0, 'rgba(255, 255, 255, 0.03)');
+            gradient.addColorStop(0, 'rgba(100, 100, 120, 0.02)');
             gradient.addColorStop(1, 'transparent');
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, width, height);
@@ -116,7 +150,13 @@ const NanotechBackground = () => {
         animate();
 
         window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mouseleave', handleMouseLeave);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('mouseleave', handleMouseLeave);
+        };
     }, []);
 
     return (

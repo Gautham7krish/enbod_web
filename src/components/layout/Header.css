@@ -3,11 +3,10 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 40px 180px;
+    padding: 25px 180px;
     display: flex;
     align-items: center;
     z-index: 10;
-    /* Lower than Hero text (20) */
     pointer-events: none;
 }
 
@@ -17,26 +16,25 @@
     gap: 15px;
     pointer-events: auto;
     z-index: 1000;
-    /* Stays above everything */
 }
 
 
 .logo-icon {
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    filter: none;
 }
 
 .logo-text {
     font-size: 42px;
     font-weight: 800;
     letter-spacing: 2px;
-    color: white;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    color: #1a1a2e;
+    text-shadow: none;
 }
 
 .full-logo-img {
-    height: 100px;
-    width: 20rem;
-    filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+    height: 55px;
+    width: auto;
+    filter: brightness(0) invert(1);
     image-rendering: -webkit-optimize-contrast;
 }
 
@@ -45,12 +43,12 @@
 /* Tablet */
 @media (max-width: 1024px) {
     .main-header {
-        padding: 30px 100px;
+        padding: 20px 100px;
     }
 
     .full-logo-img {
-        height: 80px;
-        width: 16rem;
+        height: 70px;
+        width: 15rem;
     }
 
     .logo-text {
@@ -62,18 +60,18 @@
 @media (max-width: 768px) {
     .main-header {
         padding: 20px 20px;
-        /* Remove left offset for sidebar */
         justify-content: center;
-        /* Center the logo */
     }
 
     .full-logo-img {
         height: 60px;
         width: 12rem;
+        filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
     }
 
     .logo-text {
         font-size: 28px;
+        color: white;
     }
 }
 
@@ -81,7 +79,6 @@
 @media (max-width: 480px) {
     .main-header {
         padding: 15px 15px;
-        /* Consistent padding */
         justify-content: center;
     }
 
