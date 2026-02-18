@@ -59,12 +59,12 @@ const AboutParticles = () => {
                     const dy = particles[i].y - particles[j].y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
                     if (dist < connectionDist) {
-                        const alpha = (1 - dist / connectionDist) * 0.25;
+                        const alpha = (1 - dist / connectionDist) * 0.35;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
                         ctx.strokeStyle = `rgba(120, 160, 220, ${alpha})`;
-                        ctx.lineWidth = 0.6;
+                        ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
                 }
@@ -80,23 +80,12 @@ const AboutParticles = () => {
                 if (p.y < -10) p.y = canvas.height + 10;
                 if (p.y > canvas.height + 10) p.y = -10;
 
-                const alpha = p.opacity * (0.6 + 0.4 * Math.sin(p.pulse));
-
-                if (p.glow) {
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.size * 6, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(80, 150, 255, ${alpha * 0.15})`;
-                    ctx.fill();
-
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(100, 170, 255, ${alpha * 0.3})`;
-                    ctx.fill();
-                }
+                const pulseFactor = 0.85 + 0.15 * Math.sin(p.pulse);
+                const alpha = p.opacity * pulseFactor;
 
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(150, 200, 255, ${alpha})`;
+                ctx.fillStyle = `rgba(150, 200, 255, ${alpha * 0.5})`;
                 ctx.fill();
             });
 
