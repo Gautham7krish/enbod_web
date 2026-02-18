@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
-const AboutParticles = () => {
+const AboutParticles = ({ count = 160 }) => {
     const canvasRef = useRef(null);
 
     useEffect(() => {
@@ -16,7 +16,6 @@ const AboutParticles = () => {
         window.addEventListener('resize', resize);
 
         const particles = [];
-        const count = 160;
         const connectionDist = 150;
 
         for (let i = 0; i < count; i++) {

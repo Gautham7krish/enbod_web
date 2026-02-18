@@ -11,7 +11,7 @@ const NanotechBackground = () => {
         const mouse = { x: -1000, y: -1000 };
         const mouseRadius = 120;
 
-        const particleCount = 100;
+        const particleCount = window.innerWidth <= 768 ? 40 : 100;
         const connectionDistance = 150;
 
         const handleResize = () => {

@@ -4,6 +4,7 @@ import Sidebar from './components/layout/Sidebar';
 import Hero from './components/sections/Hero';
 import HeroMobile from './components/sections/HeroMobile';
 import About from './components/sections/About';
+import AboutMobile from './components/sections/AboutMobile';
 import Healthcare from './components/sections/Healthcare';
 import Network from './components/sections/Network';
 import VideoBackground from './components/backgrounds/VideoBackground';
@@ -148,52 +149,56 @@ function App() {
         {activeTab === 'HOME' && (isMobile ? <HeroMobile /> : <Hero />)}
 
         {activeTab === 'ABOUT US' && (
-          <>
-            <div style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              zIndex: 0,
-              background: 'radial-gradient(ellipse at 25% 30%, #0c1a4a 0%, #071035 30%, #040a25 60%, #020618 100%)'
-            }}>
-              <AboutParticles />
-            </div>
-            <div className="page-wrapper" ref={scrollRef} style={{
-              height: '100vh',
-              width: '100%',
-              overflowY: 'auto',
-              position: 'relative',
-              zIndex: 1
-            }}>
-              <div>
-                <section className="page-section" style={{
-                  height: '100vh',
-                  width: '100%',
-                  display: 'block'
-                }}>
-                  <About />
-                </section>
-
-                <section className="page-section" style={{
-                  height: '100vh',
-                  width: '100%',
-                  display: 'block'
-                }}>
-                  <Mission />
-                </section>
-
-                <section className="page-section" style={{
-                  height: '100vh',
-                  width: '100%',
-                  display: 'block'
-                }}>
-                  <Values />
-                </section>
+          isMobile ? (
+            <AboutMobile />
+          ) : (
+            <>
+              <div style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: 0,
+                background: 'radial-gradient(ellipse at 25% 30%, #0c1a4a 0%, #071035 30%, #040a25 60%, #020618 100%)'
+              }}>
+                <AboutParticles />
               </div>
-            </div>
-          </>
+              <div className="page-wrapper" ref={scrollRef} style={{
+                height: '100vh',
+                width: '100%',
+                overflowY: 'auto',
+                position: 'relative',
+                zIndex: 1
+              }}>
+                <div>
+                  <section className="page-section" style={{
+                    height: '100vh',
+                    width: '100%',
+                    display: 'block'
+                  }}>
+                    <About />
+                  </section>
+
+                  <section className="page-section" style={{
+                    height: '100vh',
+                    width: '100%',
+                    display: 'block'
+                  }}>
+                    <Mission />
+                  </section>
+
+                  <section className="page-section" style={{
+                    height: '100vh',
+                    width: '100%',
+                    display: 'block'
+                  }}>
+                    <Values />
+                  </section>
+                </div>
+              </div>
+            </>
+          )
         )}
 
         {activeTab === 'SCOPE' && <Healthcare />}
