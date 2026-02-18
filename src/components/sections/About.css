@@ -22,31 +22,40 @@
 /* LEFT SIDE */
 
 .hero-left {
+    padding-left: 120px;
     flex: 1;
-    max-width: 35vw;
+    max-width: 75vw;
 }
 
 .hero-subtitle {
-    font-size: 3.2vw;
-    font-weight: 600;
-    margin-bottom: 0.3vw;
+
+    font-size: 3.5vw;
+    font-weight: 700;
+    margin-bottom: 0.5vw;
     color: white;
-    line-height: 1.1;
+    line-height: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
 }
 
 .hero-title {
-    font-size: 3.2vw;
-    font-weight: 600;
+    font-size: 3.5vw;
+    font-weight: 700;
     color: #5f7cff;
-    margin-bottom: 1.3vw;
+    margin-bottom: 1.5vw;
     line-height: 1.1;
-    font-style: italic;
+    font-style: normal;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
 }
 
 .hero-description {
-    font-size: 1vw;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1vw;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 400;
+    max-width: 100%;
 }
 
 /* RIGHT SIDE IMAGE */
