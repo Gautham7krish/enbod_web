@@ -97,25 +97,25 @@ const Network = () => {
   const [selectedMember, setSelectedMember] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.1,
         delayChildren: 0.2
       }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.5,
+        ease: "easeOut"
       }
     }
   };
@@ -166,11 +166,23 @@ const Network = () => {
         <div className="network-overlay" />
 
         <div className="network-inner">
-          <h1 className="network-title">
+          <motion.h1
+            className="network-title"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
             The Thinkers & <span>The Builders</span>
-          </h1>
+          </motion.h1>
 
-          <div className="team-wrapper desktop-view-wrapper">
+          <motion.div
+            className="team-wrapper desktop-view-wrapper"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
@@ -189,7 +201,7 @@ const Network = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           <div className="mobile-slider">
             <button
@@ -238,7 +250,7 @@ const Network = () => {
       </section>
 
       {/* MODAL */}
-      <AnimatePresence>
+      < AnimatePresence >
         {selectedMember && (
           <motion.div
             className="modal-overlay"
@@ -300,8 +312,9 @@ const Network = () => {
               </div>
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        )
+        }
+      </AnimatePresence >
     </>
   );
 };

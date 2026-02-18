@@ -27,6 +27,7 @@ import Mission from './components/sections/Mission';
 import Values from './components/sections/Values';
 import Advisory from './components/sections/Advisory';
 import BottomNav from './components/layout/BottomNav';
+import BackgroundChanger from './components/layout/BackgroundChanger';
 
 function App() {
   const [activeTab, setActiveTab] = useState('HOME');
@@ -90,6 +91,7 @@ function App() {
   }, [activeTab]);
 
   const getAppStyle = () => {
+
     if (activeTab === 'HOME') {
       return {
         backgroundImage: `url(${isMobile ? homeBgMobile : bgImageDesktop})`,
@@ -124,20 +126,19 @@ function App() {
     }
     return {};
   };
+
+  const { backgroundImage, backgroundColor } = getAppStyle() || {};
+
   return (
     <div className="app-main" style={{
-      ...getAppStyle(),
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
       height: '100%',
       width: '100%',
       overflow: 'hidden',
       position: 'absolute',
       top: 0,
       left: 0,
-      transition: 'all 0.8s ease'
     }}>
+      <BackgroundChanger bgImage={backgroundImage} bgColor={backgroundColor} />
       {activeTab === 'HOME' && !isMobile && <VideoBackground />}
       <Header activeTab={activeTab} />
       <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
