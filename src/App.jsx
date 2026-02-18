@@ -17,6 +17,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './styles/global.css';
+import './styles/noscroll.css';
 
 gsap.registerPlugin(ScrollTrigger);
 import contactBg from './assets/edd.png';
@@ -64,6 +65,14 @@ function App() {
           delay: 0.1,
           ease: 'power1.inOut'
         }
+      });
+
+      ScrollTrigger.create({
+        trigger: sections[1],
+        scroller: scrollRef.current,
+        start: 'top 60%',
+        onEnter: () => gsap.to('.logo-container', { opacity: 0, duration: 0.5, pointerEvents: 'none' }),
+        onLeaveBack: () => gsap.to('.logo-container', { opacity: 1, duration: 0.5, pointerEvents: 'auto' })
       });
 
       function raf(time) {
