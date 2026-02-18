@@ -18,8 +18,11 @@ const Sidebar = ({ activeTab, onTabChange }) => {
     { icon: contactIcon, id: 'CONTACT US' },
   ];
 
+  const darkPages = ['ABOUT US', 'SCOPE', 'TEAM', 'ADVISORY BOARD', 'CONTACT US'];
+  const isDark = darkPages.includes(activeTab);
+
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isDark ? 'dark-page' : ''}`}>
       <div className="sidebar-icons">
         {sidebarItems.map((item) => (
           <div
@@ -27,7 +30,12 @@ const Sidebar = ({ activeTab, onTabChange }) => {
             className={`sidebar-icon-wrapper ${activeTab === item.id ? 'active' : ''}`}
             onClick={() => onTabChange(item.id)}
           >
-            <img src={item.icon} alt={item.id} className="sidebar-custom-icon" />
+            <img
+              src={item.icon}
+              alt={item.id}
+              className="sidebar-custom-icon"
+              style={isDark && activeTab !== item.id ? { filter: 'invert(1) brightness(100)' } : {}}
+            />
             <span className="sidebar-tooltip">{item.id}</span>
           </div>
         ))}

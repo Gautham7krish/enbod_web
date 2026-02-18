@@ -1,5 +1,6 @@
 import React from 'react';
 import AboutParticles from '../backgrounds/AboutParticles';
+import budImage from '../../assets/bud2.png';
 import './About.css';
 
 const About = () => {
@@ -16,6 +17,9 @@ const About = () => {
                     and adaptability. Through innovation and human insight, we push
                     boundaries, transform industries, and shape the future of well-being.
                 </p>
+            </div>
+            <div className="hero-right" style={{ zIndex: 2, position: 'relative' }}>
+                <img src={budImage} alt="AI figure" />
             </div>
         </div>
     );
