@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FaFacebookF, FaLinkedinIn, FaTwitter, FaInstagram } from 'react-icons/fa';
 import p1 from '../../assets/04team-01.png';
 import p2 from '../../assets/p2.png';
 import p3 from '../../assets/p3.png';
@@ -75,7 +76,7 @@ const teamMembers = [
   },
   {
     name: "AJAY KUMAR P P",
-    // title: "CTO",
+    title: "CTO",
     image: p2,
     bio: "More than 20 years experience in software development, software consulting and Business " +
       "Process Re-engineering. " +
@@ -120,16 +121,16 @@ const Network = () => {
   };
 
   const modalVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.9 },
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.3 }
+      transition: { duration: 0.4, ease: "easeOut" }
     },
     exit: {
       opacity: 0,
-      scale: 0.8,
-      transition: { duration: 0.2 }
+      scale: 0.9,
+      transition: { duration: 0.3, ease: "easeIn" }
     }
   };
 
@@ -254,47 +255,55 @@ const Network = () => {
               exit="exit"
               onClick={(e) => e.stopPropagation()}
             >
-              <button className="modal-close" onClick={closeModal}>
-                ×
-              </button>
+              <button className="modal-close" onClick={closeModal}>×</button>
 
               <div className="modal-body">
                 <div className="modal-left">
                   <img
                     src={selectedMember.image}
-                    alt={`${selectedMember.name} - ${selectedMember.title}`}
+                    alt={selectedMember.name}
                     className="modal-image"
                     loading="lazy"
                   />
                 </div>
 
                 <div className="modal-right">
-                  <h2 className="modal-name">
-                    {selectedMember.name}
-                  </h2>
+                  <h2 className="modal-name">{selectedMember.name}</h2>
+                  <p className="modal-title">{selectedMember.title}</p>
 
-                  <p className="modal-title">
-                    {selectedMember.title}
-                  </p>
+                  <div className="modal-social">
+                    <a href={selectedMember.social.facebook} target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+                    <span className="social-sep">|</span>
+                    <a href={selectedMember.social.linkedin} target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
+                    <span className="social-sep">|</span>
+                    <a href={selectedMember.social.twitter} target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+                    <span className="social-sep">|</span>
+                    <a href={selectedMember.social.instagram} target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+                  </div>
 
-                  <p className="modal-bio">
-                    {selectedMember.bio}
-                  </p>
+                  <p className="modal-bio">{selectedMember.bio}</p>
                 </div>
               </div>
 
-              <button className="side-arrow left" onClick={prevMember}>←</button>
-              <button className="side-arrow right" onClick={nextMember}>→</button>
+              <div className="modal-footer-nav">
+                <button className="nav-arrow" onClick={prevMember}>←</button>
+                <div className="nav-dots">
+                  {teamMembers.map((_, idx) => (
+                    <span
+                      key={idx}
+                      className={`nav-dot ${idx === currentIndex ? 'active' : ''}`}
+                      onClick={() => goToMember(idx)}
+                    />
+                  ))}
+                </div>
+                <button className="nav-arrow" onClick={nextMember}>→</button>
+              </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </>
   );
-
-
-
-
 };
 
 export default Network;
