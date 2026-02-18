@@ -3,7 +3,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    padding-left: 180px;
+    padding-left: 15vw;
     position: relative;
     overflow: hidden;
     color: white;
@@ -11,80 +11,86 @@
 }
 
 .healthcare-content {
-    max-width: 550px;
+    margin-top: 100px;
+    margin-left: 60px;
+    max-width: 45vw;
     z-index: 20;
     position: relative;
 }
 
 .healthcare-label {
-    font-size: 14px;
+    font-size: 1vw;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 0.2vw;
     color: #4da6ff;
-    /* Electric blue */
     font-weight: 600;
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 1vw;
 }
 
 .healthcare-title {
-    font-size: 72px;
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -2.5px;
-    margin-bottom: 15px;
+    font-size: 3.5vw;
+    font-weight: 700;
+    line-height: 0;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5vw;
     color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .healthcare-subtitle {
-    font-size: 32px;
+    font-size: 2.8vw;
     font-weight: 700;
     color: #4da6ff;
-    /* Electric blue accent */
-    margin-bottom: 30px;
-    letter-spacing: -1px;
+    margin-bottom: 1.5vw;
+    letter-spacing: -0.02em;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.2;
 }
 
 .healthcare-description {
-    font-size: 18px;
-    line-height: 2;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 1vw;
+    line-height: 1.6;
+    color: rgb(255, 255, 255);
     margin-bottom: 4px;
+    width: 84%;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .healthcare-features {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 1vw;
 }
 
 .feature-item {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0.8vw;
 }
 
 .feature-dot {
-    width: 6px;
-    height: 6px;
+    width: 0.4vw;
+    height: 0.4vw;
     background: #4da6ff;
     border-radius: 50%;
     box-shadow: 0 0 10px #4da6ff;
 }
 
 .feature-text {
-    font-size: 14px;
+    font-size: 1vw;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05em;
 }
 
 .healthcare-visual {
     position: absolute;
-    right: -5%;
-    top: 0;
-    width: 60%;
-    height: 100%;
+    right: -10vw;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60vw;
+    height: 60vw;
     z-index: 10;
 }
 
