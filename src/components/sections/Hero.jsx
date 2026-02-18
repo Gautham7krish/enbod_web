@@ -1,16 +1,27 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import './Hero.css';
 
 const Hero = () => {
+    const containerRef = useRef(null);
+
+    useGSAP(() => {
+        const tl = gsap.timeline();
+
+        tl.from(['.hero-title', '.hero-subtitle', '.hero-description'], {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+
+    }, { scope: containerRef });
+
     return (
-        <div className="hero-container">
-            <motion.div
-                className="hero-content"
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-            >
+        <div className="hero-container" ref={containerRef}>
+            <div className="hero-content">
                 <h1 className="hero-title">A Touch of Innovation</h1>
                 <h2 className="hero-subtitle">The Future of Well-being</h2>
 
@@ -19,7 +30,7 @@ const Hero = () => {
                     From breakthrough technologies to transformative solutions, we create
                     what's next.
                 </p>
-            </motion.div>
+            </div>
         </div>
     );
 };
