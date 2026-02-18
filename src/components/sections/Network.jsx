@@ -219,15 +219,6 @@ const Network = () => {
                     loading="lazy"
                   />
                 </div>
-
-                {/* <div className="info-box">
-                <div className="name">
-                  {teamMembers[currentIndex].name}
-                </div>
-                <div className="role">
-                  {teamMembers[currentIndex].title}
-                </div>
-              </div> */}
               </motion.div>
             </AnimatePresence>
 
