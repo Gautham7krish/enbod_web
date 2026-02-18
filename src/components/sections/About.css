@@ -1,44 +1,51 @@
-/* HERO CONTAINER */
+/* ABOUT SECTION */
 
 .hero-section {
     height: 100%;
     width: 100%;
     box-sizing: border-box;
-    padding: 80px 10%;
+    padding: 4vw 10%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 40px;
+    justify-content: center;
+    gap: 2vw;
     background: transparent;
-    /* Changed from gradient to transparent */
     color: white;
-    font-family: "Poppins", sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section {
+    background: radial-gradient(ellipse at 25% 30%, #0c1a4a 0%, #071035 30%, #040a25 60%, #020618 100%);
 }
 
 /* LEFT SIDE */
 
 .hero-left {
     flex: 1;
-    max-width: 600px;
+    max-width: 35vw;
 }
 
 .hero-subtitle {
-    font-size: 56px;
+    font-size: 3.2vw;
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: 0.3vw;
     color: white;
+    line-height: 1.1;
 }
 
 .hero-title {
-    font-size: 56px;
+    font-size: 3.2vw;
     font-weight: 600;
     color: #5f7cff;
-    margin-bottom: 25px;
+    margin-bottom: 1.3vw;
+    line-height: 1.1;
+    font-style: italic;
 }
 
 .hero-description {
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: 1vw;
+    line-height: 1.7;
     color: rgba(255, 255, 255, 0.85);
 }
 
@@ -52,16 +59,13 @@
 
 .hero-right img {
     width: 100%;
-    max-width: 520px;
-
-    /* glow effect */
-    filter: drop-shadow(0 0 40px rgba(255, 180, 60, 0.5));
+    max-width: 28vw;
+    filter: drop-shadow(0 0 2vw rgba(255, 180, 60, 0.5));
 }
 
 /* RESPONSIVE */
 
 @media (max-width: 900px) {
-
     .hero-section {
         flex-direction: column;
         text-align: center;
@@ -72,17 +76,32 @@
     }
 
     .hero-right img {
-        max-width: 380px;
+        max-width: 50vw;
     }
 }
 
-/* Extra Small Mobile */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column !important;
+        text-align: center;
+        padding-top: 100px !important;
+    }
+
+    .hero-left {
+        max-width: 100% !important;
+        margin-bottom: 30px;
+    }
+
+    .hero-right {
+        max-width: 100% !important;
+    }
+}
+
 @media (max-width: 480px) {
     .hero-section {
         padding: 40px 5%;
         padding-top: 100px !important;
         padding-bottom: 90px;
-        /* Space for bottom nav */
         justify-content: flex-start !important;
     }
 
@@ -104,31 +123,5 @@
     .hero-right img {
         max-width: 200px !important;
         margin-top: 20px;
-    }
-}
-
-/* Mobile Carousel Dots for static views */
-.carousel-dots-static {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 20px;
-    width: 100%;
-}
-
-@media (max-width: 768px) {
-    .hero-section {
-        flex-direction: column !important;
-        text-align: center;
-        padding-top: 100px !important;
-    }
-
-    .hero-left {
-        max-width: 100% !important;
-        margin-bottom: 30px;
-    }
-
-    .hero-right {
-        max-width: 100% !important;
     }
 }
