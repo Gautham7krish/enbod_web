@@ -80,7 +80,6 @@ function App() {
       transition: 'all 0.8s ease'
     }}>
       {activeTab === 'HOME' && !isMobile && <VideoBackground />}
-      <NanotechBackground />
       <Header activeTab={activeTab} />
       <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
       <main style={{ height: '100%', width: '100%' }}>
