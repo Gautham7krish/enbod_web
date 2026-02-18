@@ -34,7 +34,6 @@ const Sidebar = ({ activeTab, onTabChange }) => {
               src={item.icon}
               alt={item.id}
               className="sidebar-custom-icon"
-              style={isDark && activeTab !== item.id ? { filter: 'invert(1) brightness(100)' } : {}}
             />
             <span className="sidebar-tooltip">{item.id}</span>
           </div>

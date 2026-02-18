@@ -47,8 +47,10 @@
 
 
 
-.sidebar.dark-page .sidebar-custom-icon {
-    filter: invert(1) brightness(1) opacity(1) !important;
+.sidebar.dark-page .sidebar-custom-icon,
+.sidebar.dark-page img[alt="HOME"] {
+    filter: brightness(0) invert(1) !important;
+    opacity: 1 !important;
 }
 
 .sidebar.dark-page .sidebar-icon-wrapper:not(.active):hover {
