@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Header from './components/layout/Header';
 import Sidebar from './components/layout/Sidebar';
 import Hero from './components/sections/Hero';
@@ -12,6 +12,7 @@ import bgImageDesktop from './assets/bg.png';
 import healthcareBg from './assets/04-scope.jpg'; // Using the standard high-res image for scope background fallback
 import networkBg from './assets/image.jpg';
 import AboutParticles from './components/backgrounds/AboutParticles';
+import Lenis from 'lenis';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -35,6 +36,49 @@ function App() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    if (activeTab === 'ABOUT US' && scrollRef.current) {
+      const lenis = new Lenis({
+        wrapper: scrollRef.current,
+        content: scrollRef.current.firstElementChild,
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+      });
+
+      const sections = gsap.utils.toArray('.page-section', scrollRef.current);
+
+      ScrollTrigger.create({
+        trigger: scrollRef.current.firstElementChild,
+        scroller: scrollRef.current,
+        start: 'top top',
+        end: 'bottom bottom',
+        snap: {
+          snapTo: 1 / (sections.length - 1),
+          duration: { min: 0.2, max: 0.8 },
+          delay: 0.1,
+          ease: 'power1.inOut'
+        }
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+
+      return () => {
+        lenis.destroy();
+        ScrollTrigger.getAll().forEach(t => t.kill());
+      };
+    }
+  }, [activeTab]);
 
   const getAppStyle = () => {
     if (activeTab === 'HOME') {
@@ -104,36 +148,38 @@ function App() {
             }}>
               <AboutParticles />
             </div>
-            <div className="page-wrapper" style={{
+            <div className="page-wrapper" ref={scrollRef} style={{
               height: '100vh',
               width: '100%',
               overflowY: 'auto',
               position: 'relative',
               zIndex: 1
             }}>
-              <section className="page-section" style={{
-                height: '100vh',
-                width: '100%',
-                display: 'block'
-              }}>
-                <About />
-              </section>
+              <div>
+                <section className="page-section" style={{
+                  height: '100vh',
+                  width: '100%',
+                  display: 'block'
+                }}>
+                  <About />
+                </section>
 
-              <section className="page-section" style={{
-                height: '100vh',
-                width: '100%',
-                display: 'block'
-              }}>
-                <Mission />
-              </section>
+                <section className="page-section" style={{
+                  height: '100vh',
+                  width: '100%',
+                  display: 'block'
+                }}>
+                  <Mission />
+                </section>
 
-              <section className="page-section" style={{
-                height: '100vh',
-                width: '100%',
-                display: 'block'
-              }}>
-                <Values />
-              </section>
+                <section className="page-section" style={{
+                  height: '100vh',
+                  width: '100%',
+                  display: 'block'
+                }}>
+                  <Values />
+                </section>
+              </div>
             </div>
           </>
         )}
