@@ -1,11 +1,11 @@
 .sidebar {
     position: fixed;
-    left: 15px;
+    left: 0.8vw;
     top: 50%;
     transform: translateY(-50%);
     height: auto;
-    width: 50px;
-    padding: 15px 0;
+    width: 2.6vw;
+    padding: 0.8vw 0;
     background: transparent;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,7 @@
 .sidebar-icons {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 0.9vw;
     align-items: center;
     width: 100%;
 }
@@ -30,16 +30,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 12px;
+    width: 2.8vw;
+    height: 2.8vw;
+    border-radius: 0.6vw;
     position: relative;
     background: transparent;
 }
 
 .sidebar-custom-icon {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1.4vw;
+    height: 1.4vw;
     object-fit: contain;
     filter: brightness(0) opacity(0.8);
     transition: all 0.3s ease;
@@ -69,11 +69,12 @@
 /* Tooltip Styling */
 .sidebar-tooltip {
     position: absolute;
-    left: 55px;
-    background: rgba(0, 6, 98, 0.9);
+    left: 60px;
+    background: rgb(0, 7, 98);
     backdrop-filter: blur(10px);
-    padding: 6px 12px;
+    padding: 12px 12px;
     border-radius: 8px;
+    font-size: 12px;
     font-size: 12px;
     font-weight: 600;
     color: #ffffff;
