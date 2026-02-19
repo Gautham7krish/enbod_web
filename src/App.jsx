@@ -9,11 +9,12 @@ import Healthcare from './components/sections/Healthcare';
 import HealthcareMobile from './components/sections/HealthcareMobile';
 import Network from './components/sections/Network';
 import NetworkMobile from './components/sections/NetworkMobile';
+import AdvisoryMobile from './components/sections/AdvisoryMobile';
 import VideoBackground from './components/backgrounds/VideoBackground';
 import NanotechBackground from './components/backgrounds/NanotechBackground';
 import homeBgMobile from './assets/Background.jpg';
 import bgImageDesktop from './assets/bg.png';
-import healthcareBg from './assets/04-scope.jpg'; // Using the standard high-res image for scope background fallback
+import healthcareBg from './assets/04-scope.jpg';
 import networkBg from './assets/image.jpg';
 import AboutParticles from './components/backgrounds/AboutParticles';
 import Lenis from 'lenis';
@@ -22,8 +23,6 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './styles/global.css';
 import './styles/noscroll.css';
-
-gsap.registerPlugin(ScrollTrigger);
 import contactBg from './assets/edd.png';
 import aboutBg from './assets/04.jpg';
 import ContactForm from './components/sections/Contact';
@@ -32,6 +31,8 @@ import Values from './components/sections/Values';
 import Advisory from './components/sections/Advisory';
 import BottomNav from './components/layout/BottomNav';
 import BackgroundChanger from './components/layout/BackgroundChanger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const [activeTab, setActiveTab] = useState('HOME');
@@ -206,7 +207,7 @@ function App() {
         {activeTab === 'SCOPE' && (isMobile ? <HealthcareMobile /> : <Healthcare />)}
         {activeTab === 'TEAM' && (isMobile ? <NetworkMobile /> : <Network />)}
         {activeTab === 'CONTACT US' && <ContactForm />}
-        {activeTab === 'ADVISORY BOARD' && <Advisory />}
+        {activeTab === 'ADVISORY BOARD' && (isMobile ? <AdvisoryMobile /> : <Advisory />)}
       </main>
       <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
     </div>
