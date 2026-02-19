@@ -3,7 +3,7 @@ import fullLogo from '../../assets/full_logo.png';
 import './Header.css';
 
 const Header = ({ activeTab }) => {
-    const isHomeOrAbout = activeTab === 'HOME' || activeTab === 'ABOUT US' || activeTab === 'SCOPE';
+    const isHomeOrAbout = activeTab === 'HOME' || activeTab === 'ABOUT US' || activeTab === 'SCOPE' || activeTab === 'TEAM';
     return (
         <header className={`main-header ${isHomeOrAbout ? 'home-header' : ''}`}>
             <div className="logo-container">
