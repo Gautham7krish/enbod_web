@@ -10,6 +10,7 @@ import HealthcareMobile from './components/sections/HealthcareMobile';
 import Network from './components/sections/Network';
 import NetworkMobile from './components/sections/NetworkMobile';
 import AdvisoryMobile from './components/sections/AdvisoryMobile';
+import ContactMobile from './components/sections/ContactMobile';
 import VideoBackground from './components/backgrounds/VideoBackground';
 import NanotechBackground from './components/backgrounds/NanotechBackground';
 import homeBgMobile from './assets/Background.jpg';
@@ -206,7 +207,7 @@ function App() {
 
         {activeTab === 'SCOPE' && (isMobile ? <HealthcareMobile /> : <Healthcare />)}
         {activeTab === 'TEAM' && (isMobile ? <NetworkMobile /> : <Network />)}
-        {activeTab === 'CONTACT US' && <ContactForm />}
+        {activeTab === 'CONTACT US' && (isMobile ? <ContactMobile /> : <ContactForm />)}
         {activeTab === 'ADVISORY BOARD' && (isMobile ? <AdvisoryMobile /> : <Advisory />)}
       </main>
       <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
