@@ -6,6 +6,7 @@ import HeroMobile from './components/sections/HeroMobile';
 import About from './components/sections/About';
 import AboutMobile from './components/sections/AboutMobile';
 import Healthcare from './components/sections/Healthcare';
+import HealthcareMobile from './components/sections/HealthcareMobile';
 import Network from './components/sections/Network';
 import VideoBackground from './components/backgrounds/VideoBackground';
 import NanotechBackground from './components/backgrounds/NanotechBackground';
@@ -201,7 +202,7 @@ function App() {
           )
         )}
 
-        {activeTab === 'SCOPE' && <Healthcare />}
+        {activeTab === 'SCOPE' && (isMobile ? <HealthcareMobile /> : <Healthcare />)}
         {activeTab === 'TEAM' && <Network />}
         {activeTab === 'CONTACT US' && <ContactForm />}
         {activeTab === 'ADVISORY BOARD' && <Advisory />}
