@@ -18,14 +18,11 @@ const HealthcareMobile = () => {
     }, { scope: containerRef });
 
     return (
-        <div className="healthcare-mobile-container" ref={containerRef}>
-            <div className="healthcare-image-container">
-                <img
-                    src={scopeImage}
-                    alt="AI That Cares"
-                    className="healthcare-mobile-image"
-                />
-            </div>
+        <div
+            className="healthcare-mobile-container"
+            ref={containerRef}
+            style={{ backgroundImage: `url(${scopeImage})` }}
+        >
             <div className="healthcare-mobile-overlay"></div>
 
             <div className="healthcare-mobile-content">
