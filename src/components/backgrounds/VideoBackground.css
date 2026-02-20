@@ -61,13 +61,18 @@
 /* Hide/reduce video on mobile for performance */
 @media (max-width: 768px) {
     .video-background-container {
-        max-width: 40%;
-        opacity: 0.5;
+        max-width: 100%;
+        width: 100%;
+        opacity: 0.6;
+        right: 0;
+        justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
     .video-background-container {
-        display: none; /* Hide completely on small mobile */
+        max-width: 100%;
+        width: 100%;
+        opacity: 0.6;
     }
 }
