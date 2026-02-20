@@ -101,7 +101,7 @@ function App() {
 
     if (activeTab === 'HOME') {
       return {
-        backgroundImage: `url(${isMobile ? homeBgMobile : bgImageDesktop})`,
+        backgroundImage: isMobile ? 'none' : `url(${bgImageDesktop})`,
         backgroundColor: isMobile ? '#000000' : '#c0c4c4'
       };
     } else if (activeTab === 'ABOUT US') {
@@ -140,16 +140,17 @@ function App() {
     <div className="app-main" style={{
       height: '100%',
       width: '100%',
-      overflow: 'hidden',
+      overflowX: 'hidden',
+      overflowY: isMobile ? 'auto' : 'hidden',
       position: 'absolute',
       top: 0,
       left: 0,
     }}>
       <BackgroundChanger bgImage={backgroundImage} bgColor={backgroundColor} />
-      {activeTab === 'HOME' && !isMobile && <VideoBackground />}
+      {activeTab === 'HOME' && <VideoBackground />}
       <Header activeTab={activeTab} />
       <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
-      <main style={{ height: '100%', width: '100%' }}>
+      <main style={{ minHeight: '100%', width: '100%' }}>
         {activeTab === 'HOME' && (isMobile ? <HeroMobile /> : <Hero />)}
 
         {activeTab === 'ABOUT US' && (

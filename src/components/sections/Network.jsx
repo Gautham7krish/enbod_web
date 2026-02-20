@@ -284,13 +284,13 @@ const Network = () => {
                   <p className="modal-title">{selectedMember.title}</p>
 
                   <div className="modal-social">
-                    <a href={selectedMember.social.facebook} target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+                    <span style={{ cursor: 'default' }}><FaFacebookF /></span>
                     <span className="social-sep">|</span>
-                    <a href={selectedMember.social.linkedin} target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
+                    <span style={{ cursor: 'default' }}><FaLinkedinIn /></span>
                     <span className="social-sep">|</span>
-                    <a href={selectedMember.social.twitter} target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+                    <span style={{ cursor: 'default' }}><FaTwitter /></span>
                     <span className="social-sep">|</span>
-                    <a href={selectedMember.social.instagram} target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+                    <span style={{ cursor: 'default' }}><FaInstagram /></span>
                   </div>
 
                   <p className="modal-bio">{selectedMember.bio}</p>
