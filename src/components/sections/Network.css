@@ -254,7 +254,7 @@
     color: #fff;
 }
 
-.modal-social a {
+.modal-social span {
     color: white !important;
     transition: 0.3s;
     display: flex;
@@ -262,7 +262,7 @@
     justify-content: center;
 }
 
-.modal-social a:hover {
+.modal-social span:hover {
     color: #b4c6ff !important;
     transform: translateY(-2px);
 }

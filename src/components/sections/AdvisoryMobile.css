@@ -195,13 +195,13 @@
     gap: 1.5rem;
 }
 
-.mobile-modal-social a {
-    color: rgba(255, 255, 255, 0.7);
+.mobile-modal-social span {
+    color: white;
     font-size: 1.3rem;
     transition: all 0.2s;
 }
 
-.mobile-modal-social a:hover {
+.mobile-modal-social span:hover {
     color: #4da6ff;
     transform: scale(1.1);
 }

@@ -125,10 +125,10 @@ const AdvisoryMobile = () => {
                                     <h2 className="mobile-modal-name">{selectedMember.name}</h2>
                                     <p className="mobile-modal-title" style={{ whiteSpace: 'pre-line' }}>{selectedMember.title}</p>
                                     <div className="mobile-modal-social">
-                                        <a href={selectedMember.social.facebook}><FaFacebookF /></a>
-                                        <a href={selectedMember.social.linkedin}><FaLinkedinIn /></a>
-                                        <a href={selectedMember.social.twitter}><FaTwitter /></a>
-                                        <a href={selectedMember.social.instagram}><FaInstagram /></a>
+                                        <span style={{ cursor: 'default' }}><FaFacebookF /></span>
+                                        <span style={{ cursor: 'default' }}><FaLinkedinIn /></span>
+                                        <span style={{ cursor: 'default' }}><FaTwitter /></span>
+                                        <span style={{ cursor: 'default' }}><FaInstagram /></span>
                                     </div>
                                 </div>
                                 <div className="mobile-modal-body">
