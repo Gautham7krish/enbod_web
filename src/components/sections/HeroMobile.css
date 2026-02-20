@@ -1,21 +1,17 @@
 .hero-mobile-container {
-    height: 100vh;
+    min-height: 115vh;
     width: 100%;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 2rem;
-    padding-bottom: 12vh; 
     box-sizing: border-box;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow: hidden;
 }
 
 .hero-mobile-overlay {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -25,7 +21,10 @@
 }
 
 .hero-mobile-content {  
-    position: relative;
+    position: absolute;
+    bottom: 27vh;
+    left: 2rem;
+    right: 2rem;
     z-index: 2;
     text-align: left;
     max-width: 100%;
@@ -73,9 +72,10 @@
     .hero-mobile-description {
         font-size: 1.3rem;
     }
-    .hero-mobile-container {
-        padding: 1.5rem;
-        padding-bottom: 10vh;
+    .hero-mobile-content {
+        left: 1.5rem;
+        right: 1.5rem;
+        bottom: 25vh;
     }
 }
 
@@ -89,8 +89,9 @@
     .hero-mobile-description {
         font-size: 1.1rem;
     }
-    .hero-mobile-container {
-        padding: 1rem;
-        padding-bottom: 8vh;
+    .hero-mobile-content {
+        left: 1rem;
+        right: 1rem;
+        bottom: 23vh;
     }
 }

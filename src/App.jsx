@@ -140,7 +140,8 @@ function App() {
     <div className="app-main" style={{
       height: '100%',
       width: '100%',
-      overflow: 'hidden',
+      overflowX: 'hidden',
+      overflowY: isMobile ? 'auto' : 'hidden',
       position: 'absolute',
       top: 0,
       left: 0,
@@ -149,7 +150,7 @@ function App() {
       {activeTab === 'HOME' && !isMobile && <VideoBackground />}
       <Header activeTab={activeTab} />
       <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
-      <main style={{ height: '100%', width: '100%' }}>
+      <main style={{ minHeight: '100%', width: '100%' }}>
         {activeTab === 'HOME' && (isMobile ? <HeroMobile /> : <Hero />)}
 
         {activeTab === 'ABOUT US' && (
