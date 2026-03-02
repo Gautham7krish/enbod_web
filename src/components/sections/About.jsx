@@ -10,11 +10,11 @@ const About = () => {
 
     useGSAP(() => {
         gsap.from(['.hero-subtitle', '.hero-title', '.hero-description'], {
-            y: 50,
+            y: 30,
             opacity: 0,
-            duration: 1,
-            stagger: 0.2,
-            ease: 'power3.out'
+            duration: 1.5,
+            stagger: 0.3,
+            ease: 'power2.out'
         });
     }, { scope: containerRef });
 
