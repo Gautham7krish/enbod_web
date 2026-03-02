@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 import "./Values.css";
 import lotusImage from '../../assets/loctus.png';
 
 const Values = () => {
+    const containerRef = useRef(null);
     const [activeValue, setActiveValue] = React.useState(0);
+
+    useGSAP(() => {
+        gsap.from('.value-pillar', {
+            y: 30,
+            opacity: 0,
+            duration: 1.5,
+            stagger: 0.25,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top 80%",
+            }
+        });
+    }, { scope: containerRef });
     const valuesData = [
         {
             title: "Intelligence & Precision",
@@ -41,7 +58,7 @@ const Values = () => {
     };
 
     return (
-        <div className="values-container">
+        <div className="values-container" ref={containerRef}>
             <div className="values-content">
                 {/* Mobile Header Title (Moved above details) */}
                 <div className="mobile-only values-mobile-header">

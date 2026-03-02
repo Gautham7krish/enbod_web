@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 import "./Mission.css";
 import chessImage from '../../assets/chess.png';
 
 const Mission = () => {
+    const containerRef = useRef(null);
+
+    useGSAP(() => {
+        gsap.from('.mission-vision-card', {
+            y: 30,
+            opacity: 0,
+            duration: 1.5,
+            stagger: 0.3,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top 80%",
+            }
+        });
+    }, { scope: containerRef });
+
     return (
-        <div className="mission-container">
+        <div className="mission-container" ref={containerRef}>
             <div className="mission-header-grid">
                 <div className="mission-vision-card">
                     <h2 className="mission-vision-title">Mission</h2>

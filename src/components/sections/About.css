@@ -33,9 +33,10 @@
     font-weight: 700;
     margin-bottom: 0.5vw;
     color: white;
-    line-height: 0;
+    line-height: 1;
     font-family: 'Plus Jakarta Sans', sans-serif;
     letter-spacing: -0.02em;
+
 }
 
 .hero-title {
