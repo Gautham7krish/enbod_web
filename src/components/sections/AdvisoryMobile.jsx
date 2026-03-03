@@ -43,8 +43,8 @@ const AdvisoryMobile = () => {
 
     useGSAP(() => {
         gsap.fromTo(cardRef.current,
-            { opacity: 0, x: 50 },
-            { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }
+            { opacity: 0 },
+            { opacity: 1, duration: 0.5, ease: "power2.out" }
         );
     }, [currentIndex]);
 

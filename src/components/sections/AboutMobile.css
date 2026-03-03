@@ -1,5 +1,5 @@
 .about-mobile-container {
-    min-height: 100vh;
+    height: 100dvh;
     width: 100%;
     position: relative;
     display: flex;
@@ -8,9 +8,8 @@
     padding-top: 5rem;
     padding-bottom: 2rem;
     box-sizing: border-box;
-    box-sizing: border-box;
-    overflow: hidden;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .about-mobile-overlay {
@@ -32,7 +31,9 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
-    position: relative;
+    position: sticky;
+    top: 5rem;
+    z-index: 1;
 }
 
 .about-mobile-image {
@@ -42,14 +43,17 @@
     filter: drop-shadow(0 0 1.25rem rgba(97, 113, 253, 0.2));
 
 }
+
 .about-mobile-content {
     position: relative;
     z-index: 2;
     text-align: left;
-    padding: 0 1.5rem;
+    padding: 2rem 1.5rem 5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8) 10%, #000 30%);
+    margin-top: -2rem;
 }
 
 .about-carousel-indicators {
@@ -112,15 +116,19 @@
     .about-mobile-title {
         font-size: 2.2rem;
     }
+
     .about-mobile-subtitle {
         font-size: 2.2rem;
     }
+
     .about-mobile-description {
         font-size: 1.1rem;
     }
+
     .about-mobile-container {
         padding-top: 3rem;
     }
+
     .about-image-container {
         height: 40vh;
     }
@@ -130,15 +138,19 @@
     .about-mobile-title {
         font-size: 1.8rem;
     }
+
     .about-mobile-subtitle {
         font-size: 1.8rem;
     }
+
     .about-mobile-description {
         font-size: 1rem;
     }
+
     .about-mobile-container {
         padding-top: 2rem;
     }
+
     .about-image-container {
         height: 35vh;
     }
