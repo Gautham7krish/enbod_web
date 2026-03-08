@@ -13,9 +13,9 @@
 @media (max-width: 768px) {
     .desktop-only {
         display: none !important;
-                position: relative;
+        position: relative;
         left: -1rem;
-    
+
     }
 
     .mobile-only {
@@ -25,7 +25,10 @@
 
 .values-container {
     width: 100%;
-    padding: 100px 8%;
+    box-sizing: border-box;
+    /* Prevent padding from adding to the 100% width */
+    padding: 100px 8% 100px 12%;
+    /* Added more left padding to prevent sidebar overlap */
     display: flex;
     justify-content: center;
     font-family: "Poppins", sans-serif;
@@ -36,8 +39,9 @@
     max-width: 1400px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 80px;
+    align-items: center;
+    /* Center to align the columns vertically */
+    gap: 5%;
 }
 
 
@@ -46,12 +50,11 @@
 ========================= */
 
 .values-left {
-    flex: 1.8;
+    width: 55%;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
-        position: relative;
-    top: 2rem;
 }
 
 .value-pillar {
@@ -84,25 +87,25 @@
 ========================= */
 
 .values-right {
-    flex: 0.8;
+    width: 35%;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .values-main-title {
-    font-size: 72px;
+    font-size: clamp(48px, 5vw, 76px);
     font-weight: 700;
     color: white;
-     transform: translateX(-8vw);
-    margin-bottom: 60px;
+    margin-bottom: clamp(30px, 4vw, 60px);
+    text-align: center;
 }
 
 .lotus-visual-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateX(-8vw);
 }
 
 .lotus-visual-container img {
@@ -133,7 +136,7 @@
 
     .pillar-description {
         max-width: 100%;
-         width: 100%;
+        width: 100%;
     }
 
     .values-main-title {
@@ -165,14 +168,17 @@
     }
 
     .pillar-description {
-       font-size: 14px;              /* 10px is too small */
-    line-height: 1.6;
-    letter-spacing: 0.3px;
-    color: rgba(255,255,255,0.85);
+        font-size: 14px;
+        /* 10px is too small */
+        line-height: 1.6;
+        letter-spacing: 0.3px;
+        color: rgba(255, 255, 255, 0.85);
 
-    white-space: normal;          /* allow wrapping */
-    overflow-wrap: break-word;    /* break long words */
-    word-wrap: break-word;
+        white-space: normal;
+        /* allow wrapping */
+        overflow-wrap: break-word;
+        /* break long words */
+        word-wrap: break-word;
 
     }
 

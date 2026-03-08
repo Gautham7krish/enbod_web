@@ -8,19 +8,6 @@ const Values = () => {
     const containerRef = useRef(null);
     const [activeValue, setActiveValue] = React.useState(0);
 
-    useGSAP(() => {
-        gsap.from('.value-pillar', {
-            y: 30,
-            opacity: 0,
-            duration: 1.5,
-            stagger: 0.25,
-            ease: 'power2.out',
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top 80%",
-            }
-        });
-    }, { scope: containerRef });
     const valuesData = [
         {
             title: "Intelligence & Precision",

@@ -7,20 +7,6 @@ import chessImage from '../../assets/chess.png';
 const Mission = () => {
     const containerRef = useRef(null);
 
-    useGSAP(() => {
-        gsap.from('.mission-vision-card', {
-            y: 30,
-            opacity: 0,
-            duration: 1.5,
-            stagger: 0.3,
-            ease: 'power2.out',
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top 80%",
-            }
-        });
-    }, { scope: containerRef });
-
     return (
         <div className="mission-container" ref={containerRef}>
             <div className="mission-header-grid">
